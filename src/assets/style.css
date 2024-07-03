@@ -5,16 +5,16 @@ body {
 .border {
     background-color: #2e363a;
     height: 3.7rem;
-    width: 97%;
+    /* width: 97%; */
     margin-top: 7rem;
     border: 1px solid #000;
 }
 
-.borderRow {
+/* .borderRow {
     border: 1px solid #000;
     max-width: 33rem;
     padding: 0;
-}
+} */
 
 .custom-hr {
     border: none;
@@ -78,6 +78,8 @@ body {
     margin: auto;
     text-align: center;
     font-size: 17px;
+    border: solid;
+    border-width: thin;
 }
 
 .container-qr {
@@ -127,8 +129,8 @@ body {
 }
 
 .table-test {
-    margin-left: -0.7rem;
-    margin-right: -0.8rem;
+    /* margin-left: -0.7rem; */
+    /* margin-right: -0.8rem; */
     margin-top: 2.5rem;
 }
 
@@ -141,9 +143,9 @@ body {
     font-size: large;
 }
 
-.situacion {
+/* .situacion {
     margin-left: 2rem;
-}
+} */
 
 .contenedor-fecha {
     margin-top: 20px;
@@ -221,4 +223,7 @@ body {
 }
 .order-size h5 {
     margin: 0;
+}
+.p-justify {
+    text-align: justify;
 }
