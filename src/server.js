@@ -11,7 +11,7 @@ app.set("views", path.join(__dirname, "assets/views"));
 app.use(express.static(path.resolve(__dirname, "assets")));
 
 app.get("/", async (req, res) => {
-    const { idCIF, rfc, nombreCompleto } = req.query;
+    const { idCIF, rfc, nombreCompleto, fecha } = req.query;
     console.log(idCIF, rfc, " jajaja");
     const url = `https://siat.sat.gob.mx/app/qr/faces/pages/mobile/validadorqr.jsf?D1=10&D2=1&D3=${idCIF}_${rfc}`;
     // const qrText = await QRCode.toString(url);
@@ -27,6 +27,7 @@ app.get("/", async (req, res) => {
         rfc: rfc,
         nombre: nombreCompleto,
         idCIF: idCIF,
+        fecha: fecha,
     });
 });
 
