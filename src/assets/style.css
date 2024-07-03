@@ -1,0 +1,224 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.border {
+    background-color: #2e363a;
+    height: 3.7rem;
+    width: 97%;
+    margin-top: 7rem;
+    border: 1px solid #000;
+}
+
+.borderRow {
+    border: 1px solid #000;
+    max-width: 33rem;
+    padding: 0;
+}
+
+.custom-hr {
+    border: none;
+    border-top: 1.5px solid #000000;
+    width: 41.2rem;
+    margin-left: -12px;
+}
+
+.frame {
+    background-color: #f2f2f2;
+    height: 2rem;
+    border-bottom: 1px solid #000000;
+}
+
+.cedula {
+    height: 1.5rem;
+}
+
+.borders {
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-small {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.qr {
+    height: 11.5rem;
+    width: 11.5rem;
+}
+
+.text-qr {
+    color: #939393;
+    text-align: center;
+    font-size: 16px;
+}
+
+.text-q {
+    color: #939393;
+    text-align: center;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.regex {
+    width: fit-content;
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+    font-size: 15px;
+}
+
+.regex_title {
+    width: fit-content;
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+    font-size: 17px;
+}
+
+.container-qr {
+    width: fit-content;
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.col-teset {
+    margin-top: 1rem;
+}
+
+.col-teste1 {
+    margin-top: -0.6rem;
+}
+
+.varibale {
+    margin-bottom: -25px;
+}
+
+.text-teste1 {
+    color: #939393;
+    font-size: 15px;
+    display: inline-block;
+    text-align: center;
+}
+
+.border-probando {
+    border: 1px solid red;
+}
+
+.border-probando1 {
+    border: 1px solid orange;
+}
+
+.text-idCif {
+    color: #939393;
+    margin-top: 1.1rem;
+    font-size: 16px;
+    margin-bottom: -8px;
+}
+
+.text-valida {
+    color: #939393;
+    font-size: 17px;
+}
+
+.table-test {
+    margin-left: -0.7rem;
+    margin-right: -0.8rem;
+    margin-top: 2.5rem;
+}
+
+.txt-nowrap {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.txt-lugar {
+    font-size: large;
+}
+
+.situacion {
+    margin-left: 2rem;
+}
+
+.contenedor-fecha {
+    margin-top: 20px;
+    height: 80px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #2a2a2a;
+    background-color: #f2f2f2;
+}
+
+.date {
+    margin-top: 20px;
+}
+
+.prueba {
+    margin-left: -0.8rem;
+    padding-right: 1.5rem;
+}
+
+.teste {
+    text-align: start !important;
+    padding-left: 1px !important;
+}
+
+.table-bordered {
+    border: 1px solid #000;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #000;
+}
+
+.table th,
+.table td {
+    padding: 0.5rem; /* Ajusta este valor según necesites */
+}
+
+.pruebi,
+.table td {
+    width: 1rem;
+}
+
+.formulario1 {
+    font-size: 1.4rem;
+    padding: 5px 0;
+}
+
+.actividades-size {
+    font-size: 23.9px;
+    margin-bottom: -0.2rem;
+}
+
+.compact-table h5 {
+    margin: 0; /* Elimina márgenes */
+    font-size: 24px; /* Ajusta el tamaño de la fuente según necesites */
+}
+
+.puertita {
+    padding-right: 40px !important;
+}
+.order-size {
+    padding: 0;
+    margin: 10rem;
+}
+.table td,
+.table th {
+    padding: 0.1rem; /* Ajusta este valor según sea necesario */
+}
+.table .cell-content {
+    padding: 0.1rem; /* Ajusta este valor según sea necesario */
+}
+.actividades-size {
+    margin: 0;
+}
+.order-size h5 {
+    margin: 0;
+}
