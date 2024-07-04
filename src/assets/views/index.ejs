@@ -13,27 +13,305 @@
                 rel="stylesheet"
                 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
             />
-            <link rel="stylesheet" href="style.css" />
+            <!-- <link rel="stylesheet" href="style.css" /> -->
             <title>Document</title>
         </head>
+        <style>
+            body {
+    font-family: Arial, sans-serif;
+}
+
+.border {
+    background-color: #2e363a;
+    height: 3.7rem;
+    /* width: 97%; */
+    margin-top: 7rem;
+    border: 1px solid #000;
+}
+
+/* .borderRow {
+    border: 1px solid #000;
+    max-width: 33rem;
+    padding: 0;
+} */
+
+.custom-hr {
+    border: none;
+    border-top: 1.5px solid #000000;
+    width: 41.2rem;
+    margin-left: -12px;
+}
+
+.frame {
+    background-color: #f2f2f2;
+    height: 2rem;
+    border-bottom: 1px solid #000000;
+}
+
+.cedula {
+    height: 1.5rem;
+}
+
+.borders {
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-small {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.qr {
+    height: 11.5rem;
+    width: 11.5rem;
+}
+
+.text-qr {
+    color: #939393;
+    text-align: center;
+    font-size: 16px;
+}
+
+.text-q {
+    color: #939393;
+    text-align: center;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.regex {
+    width: fit-content;
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+    font-size: 15px;
+}
+
+.regex_title {
+    width: fit-content;
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+    font-size: 17px;
+    border: solid;
+    border-width: thin;
+}
+
+.container-qr {
+    width: fit-content;
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.col-teset {
+    margin-top: 1rem;
+}
+
+.col-teste1 {
+    margin-top: -0.6rem;
+}
+
+.varibale {
+    margin-bottom: -25px;
+}
+
+.text-teste1 {
+    color: #939393;
+    font-size: 15px;
+    display: inline-block;
+    text-align: center;
+}
+
+.border-probando {
+    border: 1px solid red;
+}
+
+.border-probando1 {
+    border: 1px solid orange;
+}
+
+.text-idCif {
+    color: #939393;
+    margin-top: 1.1rem;
+    font-size: 16px;
+    margin-bottom: -8px;
+}
+
+.text-valida {
+    color: #939393;
+    font-size: 17px;
+}
+
+.table-test {
+    /* margin-left: -0.7rem; */
+    /* margin-right: -0.8rem; */
+    margin-top: 2.5rem;
+}
+
+.txt-nowrap {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.txt-lugar {
+    font-size: large;
+}
+
+/* .situacion {
+    margin-left: 2rem;
+} */
+
+.contenedor-fecha {
+    margin-top: 20px;
+    height: 80px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #2a2a2a;
+    background-color: #f2f2f2;
+}
+
+.date {
+    margin-top: 20px;
+}
+
+.prueba {
+    margin-left: -0.8rem;
+    padding-right: 1.5rem;
+}
+
+.teste {
+    text-align: start !important;
+    padding-left: 1px !important;
+}
+
+.table-bordered {
+    border: 1px solid #000;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #000;
+}
+
+.table th,
+.table td {
+    padding: 0.5rem; /* Ajusta este valor según necesites */
+}
+
+.pruebi,
+.table td {
+    width: 1rem;
+}
+
+.formulario1 {
+    font-size: 1.4rem;
+    padding: 5px 0;
+}
+
+.actividades-size {
+    font-size: 23.9px;
+    margin-bottom: -0.2rem;
+}
+
+.compact-table h5 {
+    margin: 0; /* Elimina márgenes */
+    font-size: 24px; /* Ajusta el tamaño de la fuente según necesites */
+}
+
+.puertita {
+    padding-right: 40px !important;
+}
+.order-size {
+    padding: 0;
+    margin: 10rem;
+}
+.table td,
+.table th {
+    padding: 0.1rem; /* Ajusta este valor según sea necesario */
+}
+.table .cell-content {
+    padding: 0.1rem; /* Ajusta este valor según sea necesario */
+}
+.actividades-size {
+    margin: 0;
+}
+.order-size h5 {
+    margin: 0;
+}
+.p-justify {
+    text-align: justify;
+}
+
+@page {
+    size: A4;
+    margin: 0;
+}
+
+body {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 0;
+    font-size: 12px; /* Asegúrate de que el tamaño de fuente sea adecuado */
+}
+
+.container {
+    width: 100%;
+    height: auto; /* Asegúrate de que el contenedor se ajuste automáticamente */
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse; /* Asegúrate de que las tablas no tengan espacios entre celdas */
+}
+
+.table th, .table td {
+    padding: 5px; /* Ajusta el padding según sea necesario */
+    text-align: left; /* Asegúrate de que el texto esté alineado como deseas */
+}
+
+/* Estilo específico para la sección de CÉDULA DE IDENTIFICACIÓN FISCAL */
+.regex_title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.regex_title .frame {
+    flex: 1;
+    text-align: center;
+}
+
+.regex_title strong {
+    display: inline-block;
+    width: 100%;
+}
+
+
+        </style>
         <body>
             <section class="vh-100">
                 <div class="container">
-                    <div class="row">
+                    <div class="row" id="detalles">
                         <div class="col-12">
                             <div class="border"></div>
                         </div>
                         <div class="col-6 borderRow mt-4">
                             <div class="row d-flex row-reverse regex_title">
                                 <div class="col-6 col-sm-4 w-100 frame">
-                                    <!-- <div class="container"> -->
                                         <strong>
                                             <p class="text-center mt-1">
                                                 CÉDULA DE IDENTIFICACIÓN FISCAL
                                             </p>
                                         </strong>
-                                    <!-- </div> -->
                                 </div>
+                                <div class="">
                                 <div class="row">
                                     <div class="col-12 mb-3">
                                         <div class="w-100 borders">
@@ -44,6 +322,7 @@
                                             />
                                         </div>
                                     </div>
+
                                     <div class="col">
                                         <img src="<%= qrPath %>" alt="Código QR" class="qr" />
 
@@ -83,6 +362,7 @@
                                             </p>
                                         </div>
                                     </div>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -156,23 +436,23 @@
                                         <td class="pruebi">
                                             <strong>RFC:</strong>
                                         </td>
-                                        <td>GALD660126RH8</td>
+                                        <td><%= rfc %></td>
                                     </tr>
                                     <tr>
                                         <td><strong>CURP:</strong></td>
-                                        <td>GALD660126HCSLPR07</td>
+                                        <td><%= curp %></td>
                                     </tr>
                                     <tr>
                                         <td><strong>Nombre (s):</strong></td>
-                                        <td>JOSE DERBI</td>
+                                        <td><%= nombre %></td>
                                     </tr>
                                     <tr>
                                         <td><strong>Primer Apellido</strong></td>
-                                        <td>GALVEZ</td>
+                                        <td><%= primerApellido %></td>
                                     </tr>
                                     <tr>
                                         <td><strong>Segundo Apellido</strong></td>
-                                        <td>LOPEZ</td>
+                                        <td><%=segundoApellido%></td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -181,13 +461,13 @@
                                                 operaciones:</strong
                                             >
                                         </td>
-                                        <td>01 DE ENERO DE 2004</td>
+                                        <td><%= inicioOperaciones%></td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <strong>Estatus en el padrón:</strong>
                                         </td>
-                                        <td>ACTIVO</td>
+                                        <td><%= padron%></td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -196,17 +476,17 @@
                                                 estado:</strong
                                             >
                                         </td>
-                                        <td>01 DE ENERO DE 2004</td>
+                                        <td><%=fechaCambio%></td>
                                     </tr>
                                     <tr>
                                         <td><strong>Nombre Comercial:</strong></td>
-                                        <td></td>
+                                        <td><%=nombreComercial%></td>
                                     </tr>
                                 </tbody>
                             </table>
                         <!-- </div> -->
                     </div>
-
+                    <!--*ESTO ES  DATOS-->
                     <div class="table-test mt-4">
                         <!-- <div class="container prueba"> -->
                             <table class="table table-bordered">
@@ -228,36 +508,35 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <strong>Código Postal:</strong>29034
+                                            <strong>Código Postal:</strong><%=codigosPostales%>
                                         </td>
-                                        <td><strong>Tipo de Vialidad:</strong></td>
+                                        <td><strong>Tipo de Vialidad:</strong><%=tipoVialidad%></td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <strong>Nombre de Vialidad:</strong>15A
-                                            NTE OTE
+                                            <strong>Nombre de Vialidad:</strong><%=nombreVialidad%>
                                         </td>
                                         <td>
-                                            <strong>Número Exterior: </strong>450
+                                            <strong>Número Exterior: </strong><%=numExt%>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong>Número Interior:</strong></td>
+                                        <td><strong>Número Interior: </strong><%=numInt%></td>
                                         <td>
                                             <strong>Nombre de la Colonia: </strong
-                                            >LA PIMIENTA
+                                            ><%=colonia%>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <strong>Nombre de la Localidad:</strong>
+                                            <strong>Nombre de la Localidad: </strong><%=nameLocaliad%>
                                         </td>
                                         <td>
                                             <strong
                                                 >Nombre del Municipio o Demarcación
                                                 Territorial:
                                             </strong>
-                                            TUXTLA GUTIERREZ
+                                            <%=municipio%>
                                         </td>
                                     </tr>
                                     <tr>
@@ -265,20 +544,22 @@
                                             <strong
                                                 >Nombre de la Entidad
                                                 Federativa:</strong
-                                            >CHIAPAS
+                                            ><%=federativa%>
                                         </td>
-                                        <td><strong>Entre Calle:</strong></td>
+                                        <td><strong>Entre Calle:</strong><%=entreCalle%></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">
-                                            <strong>Y Calle:</strong>
+                                            <strong>Y Calle:</strong><%=yCalle%>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         <!-- </div> -->
                     </div>
-
+                    <!--*FINAL DEL REGIMEN-->
+                    <% if(actividades && actividades.length>0){%>
+                    <!--?ACTIVIDADES ECONOMICAS-->
                     <div class="table-test mt-4">
                         <!-- <div class="container prueba"> -->
                             <table class="table table-bordered">
@@ -383,7 +664,10 @@
                             </table>
                         <!-- </div> -->
                     </div>
-
+                    <!--?FIN DE LAS ACTIVIDADES ECONOMICAS-->
+                    <% } %>
+                    <% if (regimenes && regimenes.length > 0) { %>
+                    <!--!ESTO ES REGIMEN-->
                     <div class="table-test mt-4">
                         <!-- <div class="container prueba"> -->
                             <table class="table table-bordered">
@@ -435,18 +719,69 @@
                                             </h5>
                                         </td>
                                     </tr>
+                                    <% regimenes.forEach(regimen => { %>
                                     <tr>
                                         <td colspan="3" style="padding-bottom: 15px;">
-                                            Régimen de Sueldos y Salarios e Ingresos
-                                            Asimilados a Salarios
+                                            <%=regimen.dregimen%>
                                         </td>
-                                        <td>01/01/2004</td>
-                                        <td></td>
+                                        <td><%=regimen.faltaReg%></td>
+                                        <td><%=regimen.fbajaReg%></td>
                                     </tr>
+                                    <% }); %>
                                 </tbody>
                             </table>
                         <!-- </div> -->
                     </div>
+                    <% } %>
+                    <!--!FINAL DEL REGIMEN-->
+
+                    <% if (obligaciones && obligaciones.length > 0) { %>
+                    <!--!ESTO ES OBLICACIONES-->
+                    <div class="table-test mt-4">
+                        <!-- <div class="container prueba"> -->
+                            <table class="table table-bordered">
+                                <thead style="background-color: #f2f2f2; text-align: center;">
+                                    <tr>
+                                        <th
+                                            colspan="4"
+                                            class="text-center teste"
+                                            style="background-color: #f2f2f2"
+                                        >
+                                            <h4><strong> Obligaciones: </strong></h4>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                    <td style="background-color: #f2f2f2; white-space: nowrap; padding-left: 15px; padding-right: 15px;">
+                                        <h5><strong>Descripción de la Obligación</strong></h5>
+                                    </td>
+                                    <td style="background-color: #f2f2f2; white-space: nowrap;">
+                                        <h5 style="padding-left: 15px; padding-right: 15px;"><strong>Descripción Vencimiento</strong></h5>
+                                    </td>
+                                    <td style="background-color: #f2f2f2;">
+                                        <h5 style="padding-left: 15px; padding-right: 15px;"><strong>Fecha Inicio</strong></h5>
+                                    </td>
+                                    <td style="background-color: #f2f2f2;">
+                                        <h5 style="padding-left: 15px; padding-right: 15px;"><strong>Fecha Fin</strong></h5>
+                                    </td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <% obligaciones.forEach(obligacion => { %>
+                                        <tr>
+                                            <td> <%=obligacion.dobligacion%></td>
+                                            <td><%=obligacion.dobligLc%></td>
+                                            <td><%=obligacion.faltaOblig%></td>
+                                            <td><%=obligacion.fbajaOblig%></td>
+                                        </tr>
+                                    <% }); %>
+                                </tbody>
+                            </table>
+                        <!-- </div> -->
+                    </div>
+                    <% } %>
+                    <!--!FINAL DEL OBLICACIONES-->
+
+
                     <div class="col-12 mt-4">
                         <strong>
                             <p class="p-justify">
@@ -476,6 +811,7 @@
                             </p>
                         </strong>
                     </div>
+
                     <div class="col-3 mt-4">
                         <strong>
                             <p>
@@ -484,6 +820,7 @@
                             </p>
                         </strong>
                     </div>
+
                     <div class="col-9 mt-4">
                         <p>
                             ||<%= fecha %>|<%= rfc %>|CONSTANCIA DE SITUACIÓN
@@ -492,6 +829,7 @@
                                 7I7uyATw4sTjA0yhrwCfP8vg3j5KklD+QYo5Yr/e+8AJwKjNUOYyHt03u6mQPzm5NdW1SG4qqUp9J0UUEI+s=
                         </p>
                     </div>
+
                 </div>
                     </div>
                 </div>

@@ -1,102 +1,125 @@
 const express = require("express");
 const path = require("path");
+const puppeteer = require("puppeteer");
 const ejs = require("ejs");
 const QRCode = require("qrcode");
 const fs = require("fs").promises;
 const bwipjs = require("bwip-js");
-const puppeteer = require("puppeteer");
-
+const responses = require("../responses.json");
 const app = express();
 
+// Configuración de la vista y los archivos estáticos
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "src/assets/views"));
+app.set("views", path.join(__dirname, "assets", "views"));
 app.use(express.static(path.resolve(__dirname, "assets")));
 
+// Ruta principal
 app.get("/", async (req, res) => {
-    const { idCIF, rfc, nombreCompleto, fecha } = req.query;
-    const url = `https://siat.sat.gob.mx/app/qr/faces/pages/mobile/validadorqr.jsf?D1=10&D2=1&D3=${idCIF}_${rfc}`;
-    const qrPath = await QRCode.toString(url, {
-        type: "svg",
-        size: 200,
-    });
-    const qr = "qrcode.svg";
-    const barcode = "barcode.png";
-    const svgFilePath = path.join(__dirname, "assets/svg", qr);
-    const barcodeFilePath = path.join(__dirname, "assets/barcodes", barcode);
-    const data = {
-        qrPath: `/svg/${qr}`,
-        barcodePath: `/barcodes/${barcode}`,
-        rfc,
-        nombre: nombreCompleto,
-        idCIF,
-        fecha,
-    };
     try {
-        await fs.writeFile(svgFilePath, qrPath);
-        await generateBarcode(rfc, barcodeFilePath);
-        const template = path.resolve(__dirname, "./assets/views/index.ejs");
-        ejs.renderFile(template, data, async function (err, html) {
-            if (err) {
-                console.log("ERROR EN IF: ", err, "<=");
-            }
-            const browser = await puppeteer.launch({ headless: true });
-            const page = await browser.newPage();
-            await page.pdf({
-                path: "./assets/rfc.pdf",
-                format: "A4",
-            });
-            await browser.close();
+        const {
+            rfc,
+            nombreCompleto,
+            codigosPostales,
+            regimenes,
+            obligaciones,
+            actividades,
+        } = responses.data;
+        const url = `https://siat.sat.gob.mx/app/qr/faces/pages/mobile/validadorqr.jsf?D1=10&D2=1&D3=1234_POCE900801PV3`;
+        const qrPath = await QRCode.toString(url, {
+            type: "svg",
+            size: 200,
         });
-    } catch (error) {
-        console.error("Error al generar el PDF:", error);
+        const qr = "qrcode.svg";
+        const barcode = "barcode.png";
+        const svgFilePath = path.join(__dirname, "assets/svg", qr);
+        await fs.writeFile(svgFilePath, qrPath);
+
+        const barcodeFilePath = path.join(
+            __dirname,
+            "assets/barcodes",
+            barcode,
+        );
+        await generateBarcode("POCE900801PV3", barcodeFilePath);
+        const partes = nombreCompleto.trim().split(/\s+/);
+        const segundoApellido = partes.pop();
+        const nombre = partes.shift();
+        const primerApellido = partes.join(" ");
+        //!P
+        const browser = await puppeteer.launch({
+            headless: false,
+            args: ["--no-sandbox", "--disable-setuid-sandbox"],
+        });
+        data = {
+            segundoApellido,
+            nombre,
+            primerApellido,
+            actividades,
+            rfc,
+            qrPath: `/svg/${qr}`,
+            barcodePath: `/barcodes/${barcode}`,
+            idCIF: 22120114385,
+            obligaciones,
+            codigosPostales: codigosPostales[0].clave,
+            regimenes,
+            fecha: "2024/07/04",
+            curp: "MATM960529HCSTMR08",
+            inicioOperaciones: "05 DE JULIO 2025",
+            padron: "ACTIVO",
+            fechaCambio: "15 DE JUNIO 2024",
+            nombreComercial: "",
+            tipoVialidad: "",
+            nombreVialidad: "",
+            numExt: "1234",
+            numInt: "RTYU",
+            colonia: "SAN FRANCISCO",
+            nameLocaliad: "MI CASA",
+            municipio: "MI OTRA CASA",
+            federativa: "MI OTRA CASA POS SI",
+            entreCalle: "5ta",
+            yCalle: "19a",
+        };
+        console.log(data, " veamos que mando");
+        const content = await compile("index", data);
+        const page = await browser.newPage();
+        await page.setContent(content, {
+            waitUntil: "networkidle2",
+            timeout: 90000,
+        });
+        await page.waitForSelector("#detalles", { timeout: 5000 });
+        await page.emulateMediaType("screen");
+        const pdfPath = path.join(__dirname, "test.pdf");
+        await page.evaluateHandle("document.fonts.ready");
+
+        // Genera el PDF
+        await page.pdf({
+            path: "output.pdf",
+            format: "A4",
+            printBackground: true,
+            // margin: {
+            //     top: "0px",
+            //     right: "0px",
+            //     bottom: "0px",
+            //     left: "0px",
+            // },
+        });
+        await browser.close();
+        res.status(200).json({ message: "TODO BEM" });
+    } catch (e) {
+        console.error("Error al generar el PDF:", e);
         res.status(500).send("Error al generar el PDF");
     }
 });
 
-// app.get("/", async (req, res) => {
-//     const { idCIF, rfc, nombreCompleto, fecha } = req.query;
-//     console.log(idCIF, rfc, " jajaja");
-//     const url = `https://siat.sat.gob.mx/app/qr/faces/pages/mobile/validadorqr.jsf?D1=10&D2=1&D3=${idCIF}_${rfc}`;
-//     // const qrText = await QRCode.toString(url);
-//     const qrPath = await QRCode.toString(url, {
-//         type: "svg",
-//         size: 200,
-//     });
-//     const qr = "qrcode.svg";
-//     const barcode = "barcode.png";
-//     const svgFilePath = path.join(__dirname, "assets/svg", qr);
-//     await fs.writeFile(svgFilePath, qrPath);
-
-//     const barcodeFilePath = path.join(__dirname, "assets/barcodes", barcode);
-//     await generateBarcode(rfc, barcodeFilePath);
-//     const html = await ejs.renderFile(
-//         path.join(__dirname, "assets/views", "index.ejs"),
-//         {
-//             qrPath: `/svg/${qr}`,
-//             barcodePath: `/barcodes/${barcode}`,
-//             rfc: rfc,
-//             nombre: nombreCompleto,
-//             idCIF: idCIF,
-//             fecha: fecha,
-//         },
-//     );
-//     const browser = await puppeteer.launch();
-//     const page = await browser.newPage();
-//     await page.setContent(html);
-//     const pdfBuffer = await page.pdf({
-//         format: "A4",
-//         printBackground: true,
-//     });
-//     await browser.close();
-
-//     // Enviar el PDF como respuesta
-//     res.contentType("application/pdf");
-//     res.send(pdfBuffer);
-// });
-
-app.get("/generar-pdf", async (req, res) => {
-    const { idCIF, rfc, nombreCompleto, fecha } = req.query;
-    const url = `https://siat.sat.gob.mx/app/qr/faces/pages/mobile/validadorqr.jsf?D1=10&D2=1&D3=${idCIF}_${rfc}`;
+app.get("/index", async (req, res) => {
+    const {
+        rfc,
+        nombreCompleto,
+        codigosPostales,
+        regimenes,
+        obligaciones,
+        actividades,
+    } = responses.data;
+    const url = `https://siat.sat.gob.mx/app/qr/faces/pages/mobile/validadorqr.jsf?D1=10&D2=1&D3=22120114385_${rfc}`;
     const qrPath = await QRCode.toString(url, {
         type: "svg",
         size: 200,
@@ -105,35 +128,44 @@ app.get("/generar-pdf", async (req, res) => {
     const barcode = "barcode.png";
     const svgFilePath = path.join(__dirname, "assets/svg", qr);
     await fs.writeFile(svgFilePath, qrPath);
+    const partes = nombreCompleto.trim().split(/\s+/);
+    const segundoApellido = partes.pop();
+    const nombre = partes.shift();
+    const primerApellido = partes.join(" ");
     const barcodeFilePath = path.join(__dirname, "assets/barcodes", barcode);
     await generateBarcode(rfc, barcodeFilePath);
-    const html = await ejs.renderFile(
-        path.join(__dirname, "assets/views", "index.ejs"),
-        {
-            qrPath: `/svg/${qr}`,
-            barcodePath: `/barcodes/${barcode}`,
-            rfc: rfc,
-            nombre: nombreCompleto,
-            idCIF: idCIF,
-            fecha: fecha,
-        },
-    );
-    const browser = await puppeteer.launch({ headless: false });
-    const page = await browser.newPage();
-    const { width, height } = await page.evaluate(() => {
-        return {
-            width: window.screen.availWidth,
-            height: window.screen.availHeight,
-        };
-    });
-    await page.setViewport({ width, height });
-    await page.setContent(html, { waitUntil: "networkidle0", timeout: 60000 });
-    await page.waitForTimeout(2000);
-    const pdf = await page.pdf({ format: "letter" });
-    await browser.close();
-
-    res.contentType("application/pdf");
-    res.send(pdf);
+    console.log(obligaciones.length, "codigosPostales");
+    data = {
+        segundoApellido,
+        nombre,
+        primerApellido,
+        actividades,
+        rfc,
+        qrPath: `/svg/${qr}`,
+        barcodePath: `/barcodes/${barcode}`,
+        idCIF: 22120114385,
+        obligaciones,
+        codigosPostales: codigosPostales[0].clave,
+        regimenes,
+        fecha: "2024/07/04",
+        curp: "MATM960529HCSTMR08",
+        inicioOperaciones: "05 DE JULIO 2025",
+        padron: "ACTIVO",
+        fechaCambio: "15 DE JUNIO 2024",
+        nombreComercial: "",
+        tipoVialidad: "",
+        nombreVialidad: "",
+        numExt: "1234",
+        numInt: "RTYU",
+        colonia: "SAN FRANCISCO",
+        nameLocaliad: "MI CASA",
+        municipio: "MI OTRA CASA",
+        federativa: "MI OTRA CASA POS SI",
+        entreCalle: "5ta",
+        yCalle: "19a",
+    };
+    // Renderiza la página EJS
+    res.render("index", data);
 });
 
 async function generateBarcode(text, outputPath) {
@@ -156,6 +188,19 @@ async function generateBarcode(text, outputPath) {
         );
     });
 }
+
+async function compile(templeteName, data) {
+    const filePath = path.join(
+        process.cwd(),
+        "src",
+        "assets",
+        "views",
+        `${templeteName}.ejs`,
+    );
+    const html = await fs.readFile(filePath, "utf-8");
+    return ejs.compile(html)(data);
+}
+// Iniciar el servidor
 app.listen(8080, () => {
-    console.log(`express server running on 8080`);
+    console.log("Servidor Express ejecutándose en el puerto 8080");
 });
