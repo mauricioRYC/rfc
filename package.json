@@ -11,9 +11,12 @@
     "license": "ISC",
     "dependencies": {
         "bootstrap": "^5.3.3",
+        "bwip-js": "^4.5.0",
         "ejs": "^3.1.10",
         "express": "^4.19.2",
+        "fs": "^0.0.1-security",
         "nodemon": "^3.1.4",
+        "path": "^0.12.7",
         "qrcode": "^1.5.3"
     }
 }

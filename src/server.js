@@ -3,6 +3,7 @@ const path = require("path");
 const ejs = require("ejs");
 const QRCode = require("qrcode");
 const fs = require("fs").promises;
+const bwipjs = require('bwip-js');
 
 const app = express();
 
@@ -22,14 +23,40 @@ app.get("/", async (req, res) => {
     const qr = "qrcode.svg";
     const svgFilePath = path.join(__dirname, "assets/svg", qr);
     await fs.writeFile(svgFilePath, qrPath);
+
+    const barcodeFilePath = path.join(__dirname, 'assets/barcodes', 'barcode.png');
+    await generateBarcode(rfc, barcodeFilePath);
+
+
     res.render("index", {
         qrPath: qr,
+        barcodePath: 'assets/barcodes/barcode.png',
         rfc: rfc,
         nombre: nombreCompleto,
         idCIF: idCIF,
         fecha: fecha,
     });
 });
+
+async function generateBarcode(text, outputPath) {
+    return new Promise((resolve, reject) => {
+        bwipjs.toBuffer({
+            bcid: 'code128',       // Barcode type
+            text: text,            // Text to encode
+            scale: 3,              // 3x scaling factor
+            height: 10,            // Bar height, in millimeters
+            includetext: true,     // Show human-readable text
+            textxalign: 'center',  // Always good to set this
+        }, function (err, png) {
+            if (err) {
+                return reject(err);
+            }
+            fs.writeFile(outputPath, png)
+                .then(resolve)
+                .catch(reject);
+        });
+    });
+}
 
 /**
  *  const { idCIF, rfc } = req.params;
