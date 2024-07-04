@@ -1,504 +1,501 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-            crossorigin="anonymous"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        />
-        <link rel="stylesheet" href="style.css" />
-        <title>Document</title>
-    </head>
-    <body>
-        <section class="vh-100">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="border"></div>
-                    </div>
-                    <div class="col-6 borderRow mt-4">
-                        <div class="row d-flex row-reverse regex_title">
-                            <div class="col-6 col-sm-4 w-100 frame">
-                                <!-- <div class="container"> -->
-                                    <strong>
-                                        <p class="text-center mt-1">
-                                            CÉDULA DE IDENTIFICACIÓN FISCAL
-                                        </p>
-                                    </strong>
-                                <!-- </div> -->
-                            </div>
-                            <div class="row">
-                                <div class="col-12 mb-3">
-                                    <div class="w-100 borders">
-                                        <img
-                                            src="svg/test.png"
-                                            alt="Logo.png"
-                                            class="img-small"
-                                        />
-                                    </div>
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <link
+                href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+                rel="stylesheet"
+                integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+                crossorigin="anonymous"
+            />
+            <link
+                rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            />
+            <link rel="stylesheet" href="style.css" />
+            <title>Document</title>
+        </head>
+        <body>
+            <section class="vh-100">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="border"></div>
+                        </div>
+                        <div class="col-6 borderRow mt-4">
+                            <div class="row d-flex row-reverse regex_title">
+                                <div class="col-6 col-sm-4 w-100 frame">
+                                    <!-- <div class="container"> -->
+                                        <strong>
+                                            <p class="text-center mt-1">
+                                                CÉDULA DE IDENTIFICACIÓN FISCAL
+                                            </p>
+                                        </strong>
+                                    <!-- </div> -->
                                 </div>
-                                <div class="col">
-                                    <img
-                                        src="svg/qrcode.svg"
-                                        alt="Código QR"
-                                        class="qr"
-                                    />
-                                </div>
-                                <div class="col col-test">
-                                    <div class="varibale">
-                                        <p class="text-qr"><%= rfc %> <br /></p>
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <div class="w-100 borders">
+                                            <img
+                                                src="svg/test.png"
+                                                alt="Logo.png"
+                                                class="img-small"
+                                            />
+                                        </div>
                                     </div>
-                                    <div class="col-test">
-                                        <span class="text-q"
-                                            >Registro Federal de
-                                            Contribuyentes</span
-                                        >
+                                    <div class="col">
+                                        <img src="<%= qrPath %>" alt="Código QR" class="qr" />
+
                                     </div>
-                                    <div class="col-teset varibale">
-                                        <p class="text-qr"><%= nombre %></p>
-                                    </div>
-                                    <div class="col-teste1">
-                                        <span class="text-teste1"
-                                            >Nombre, denominación o razón
-                                        </span>
+                                    <div class="col col-test">
+                                        <div class="varibale">
+                                            <p class="text-qr"><%= rfc %> <br /></p>
+                                        </div>
+                                        <div class="col-test">
+                                            <span class="text-q"
+                                                >Registro Federal de
+                                                Contribuyentes</span
+                                            >
+                                        </div>
+                                        <div class="col-teset varibale">
+                                            <p class="text-qr"><%= nombre %></p>
+                                        </div>
                                         <div class="col-teste1">
                                             <span class="text-teste1"
-                                                >social</span
-                                            >
-                                        </div>
-                                    </div>
-                                    <div class="varibale-id">
-                                        <p class="text-idCif">
-                                            idCIF:
-                                            <span><%= idCIF %></span>
-                                        </p>
-                                    </div>
-                                    <div class="">
-                                        <p class="text-valida">
-                                            VALIDA TU INFORMACIÓN FISCAL
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="col-6 d-flex justify-content-center align-items-center situacion"
-                    >
-                        <div class="container p-0">
-                            <div
-                                class="container d-flex justify-content-center align-items-center contenedor-fecha txt-nowrap"
-                                style="
-                                    border: 1px solid #565656;
-                                    background-color: #f2f2f2;
-                                "
-                            >
-                                <h4 class="text-center">
-                                    <strong
-                                        >CONSTANCIA DE SITUACIÓN FISCAL</strong
-                                    >
-                                </h4>
-                            </div>
-                            <div
-                                class="container d-flex justify-content-center align-items-center contenedor-fecha date"
-                            >
-                                <div class="date">
-                                    <span class="text-center"
-                                        >Lugar y Fecha de Emisión</span
-                                    >
-
-                                    <h5 class="txt-lugar">
-                                        <strong
-                                            >CUAUHTEMOC, CIUDAD DE MEXICO A 05
-                                            DE JUNIO DE 2024</strong
-                                        >
-                                    </h5>
-                                </div>
-                            </div>
-                            <div
-                                class="container d-flex justify-content-center align-items-center date"
-                            >
-                                    <img
-                                    src="barcodes/barcode.png"
-                                    alt="Código de Barras"
-                                    style="width: 45%; height: 100%;"
-                                    />
-                            </div>
-                        </div>
-                    </div>
-                <!-- </div> -->
-
-                <div class="col-12 mt-4">
-                    <!-- <div class="container prueba"> -->
-                        <table class="table table-bordered">
-                            <thead style="background-color: #f2f2f2">
-                                <tr>
-                                    <th
-                                        colspan="2"
-                                        class="text-center teste"
-                                        style="background-color: #f2f2f2"
-                                    >
-                                        <h1 class="formulario1">
-                                            <strong
-                                                >Datos de Identificación del
-                                                Contribuyente:</strong
-                                            >
-                                        </h1>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="pruebi">
-                                        <strong>RFC:</strong>
-                                    </td>
-                                    <td>GALD660126RH8</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>CURP:</strong></td>
-                                    <td>GALD660126HCSLPR07</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Nombre (s):</strong></td>
-                                    <td>JOSE DERBI</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Primer Apellido</strong></td>
-                                    <td>GALVEZ</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Segundo Apellido</strong></td>
-                                    <td>LOPEZ</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <strong
-                                            >Fecha inicio de
-                                            operaciones:</strong
-                                        >
-                                    </td>
-                                    <td>01 DE ENERO DE 2004</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <strong>Estatus en el padrón:</strong>
-                                    </td>
-                                    <td>ACTIVO</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <strong
-                                            >Fecha de último cambio de
-                                            estado:</strong
-                                        >
-                                    </td>
-                                    <td>01 DE ENERO DE 2004</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Nombre Comercial:</strong></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    <!-- </div> -->
-                </div>
-
-                <div class="table-test mt-4">
-                    <!-- <div class="container prueba"> -->
-                        <table class="table table-bordered">
-                            <thead style="background-color: #f2f2f2">
-                                <tr>
-                                    <th
-                                        colspan="2"
-                                        class="text-center teste"
-                                        style="background-color: #f2f2f2"
-                                    >
-                                        <h5>
-                                            <strong>
-                                                Datos del domicilio registrado
-                                            </strong>
-                                        </h5>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <strong>Código Postal:</strong>29034
-                                    </td>
-                                    <td><strong>Tipo de Vialidad:</strong></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <strong>Nombre de Vialidad:</strong>15A
-                                        NTE OTE
-                                    </td>
-                                    <td>
-                                        <strong>Número Exterior: </strong>450
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Número Interior:</strong></td>
-                                    <td>
-                                        <strong>Nombre de la Colonia: </strong
-                                        >LA PIMIENTA
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <strong>Nombre de la Localidad:</strong>
-                                    </td>
-                                    <td>
-                                        <strong
-                                            >Nombre del Municipio o Demarcación
-                                            Territorial:
-                                        </strong>
-                                        TUXTLA GUTIERREZ
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <strong
-                                            >Nombre de la Entidad
-                                            Federativa:</strong
-                                        >CHIAPAS
-                                    </td>
-                                    <td><strong>Entre Calle:</strong></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
-                                        <strong>Y Calle:</strong>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    <!-- </div> -->
-                </div>
-
-                <div class="table-test mt-4">
-                    <!-- <div class="container prueba"> -->
-                        <table class="table table-bordered">
-                            <thead style="background-color: #f2f2f2">
-                                <tr>
-                                    <th
-                                        colspan="7"
-                                        class="text-center teste"
-                                        style="background-color: #f2f2f2"
-                                    >
-                                        <h4 class="actividades-size">
-                                            <strong
-                                                >Actividades Económicas:</strong
-                                            >
-                                        </h4>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="order-size">
-                                    <td
-                                        style="background-color: #f2f2f2"
-                                        class="puertita compact-table"
-                                    >
-                                        <h5 style="text-align: center">
-                                            <strong>Orden</strong>
-                                        </h5>
-                                    </td>
-                                    <td
-                                        style="background-color: #f2f2f2"
-                                        colspan="3"
-                                    >
-                                        <div class="cell-content">
-                                            <h5
-                                                style="text-align: center"
-                                                class="puertita"
-                                            >
-                                                <strong
-                                                    >Actividad Económica</strong
+                                                >Nombre, denominación o razón
+                                            </span>
+                                            <div class="col-teste1">
+                                                <span class="text-teste1"
+                                                    >social</span
                                                 >
+                                            </div>
+                                        </div>
+                                        <div class="varibale-id">
+                                            <p class="text-idCif">
+                                                idCIF:
+                                                <span><%= idCIF %></span>
+                                            </p>
+                                        </div>
+                                        <div class="">
+                                            <p class="text-valida">
+                                                VALIDA TU INFORMACIÓN FISCAL
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="col-6 d-flex justify-content-center align-items-center situacion"
+                        >
+                            <div class="container p-0">
+                                <div
+                                    class="container d-flex justify-content-center align-items-center contenedor-fecha txt-nowrap"
+                                    style="
+                                        border: 1px solid #565656;
+                                        background-color: #f2f2f2;
+                                    "
+                                >
+                                    <h4 class="text-center">
+                                        <strong
+                                            >CONSTANCIA DE SITUACIÓN FISCAL</strong
+                                        >
+                                    </h4>
+                                </div>
+                                <div
+                                    class="container d-flex justify-content-center align-items-center contenedor-fecha date"
+                                >
+                                    <div class="date">
+                                        <span class="text-center"
+                                            >Lugar y Fecha de Emisión</span
+                                        >
+
+                                        <h5 class="txt-lugar">
+                                            <strong
+                                                >CUAUHTEMOC, CIUDAD DE MEXICO A 05
+                                                DE JUNIO DE 2024</strong
+                                            >
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div
+                                    class="container d-flex justify-content-center align-items-center date"
+                                >
+                                        <img
+                                        src="<%= barcodePath %>"
+                                        alt="Código de Barras"
+                                        style="width: 45%; height: 100%;"
+                                        />
+                                </div>
+                            </div>
+                        </div>
+                    <!-- </div> -->
+
+                    <div class="col-12 mt-4">
+                        <!-- <div class="container prueba"> -->
+                            <table class="table table-bordered">
+                                <thead style="background-color: #f2f2f2">
+                                    <tr>
+                                        <th
+                                            colspan="2"
+                                            class="text-center teste"
+                                            style="background-color: #f2f2f2"
+                                        >
+                                            <h1 class="formulario1">
+                                                <strong
+                                                    >Datos de Identificación del
+                                                    Contribuyente:</strong
+                                                >
+                                            </h1>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="pruebi">
+                                            <strong>RFC:</strong>
+                                        </td>
+                                        <td>GALD660126RH8</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>CURP:</strong></td>
+                                        <td>GALD660126HCSLPR07</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Nombre (s):</strong></td>
+                                        <td>JOSE DERBI</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Primer Apellido</strong></td>
+                                        <td>GALVEZ</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Segundo Apellido</strong></td>
+                                        <td>LOPEZ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong
+                                                >Fecha inicio de
+                                                operaciones:</strong
+                                            >
+                                        </td>
+                                        <td>01 DE ENERO DE 2004</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Estatus en el padrón:</strong>
+                                        </td>
+                                        <td>ACTIVO</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong
+                                                >Fecha de último cambio de
+                                                estado:</strong
+                                            >
+                                        </td>
+                                        <td>01 DE ENERO DE 2004</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Nombre Comercial:</strong></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        <!-- </div> -->
+                    </div>
+
+                    <div class="table-test mt-4">
+                        <!-- <div class="container prueba"> -->
+                            <table class="table table-bordered">
+                                <thead style="background-color: #f2f2f2">
+                                    <tr>
+                                        <th
+                                            colspan="2"
+                                            class="text-center teste"
+                                            style="background-color: #f2f2f2"
+                                        >
+                                            <h5>
+                                                <strong>
+                                                    Datos del domicilio registrado
+                                                </strong>
                                             </h5>
-                                        </div>
-                                    </td>
-                                    <td style="background-color: #f2f2f2">
-                                        <h5
-                                            style="
-                                                text-align: center;
-                                                padding-right: 10px;
-                                                padding-left: 10px;
-                                            "
-                                        >
-                                            <strong>Porcentaje</strong>
-                                        </h5>
-                                    </td>
-                                    <td
-                                        style="
-                                            background-color: #f2f2f2;
-                                            white-space: nowrap;
-                                        "
-                                    >
-                                        <h5
-                                            style="
-                                                text-align: center;
-                                                padding-right: 10px;
-                                                padding-left: 10px;
-                                            "
-                                        >
-                                            <strong>Fecha Inicio</strong>
-                                        </h5>
-                                    </td>
-                                    <td
-                                        style="
-                                            background-color: #f2f2f2;
-                                            white-space: nowrap;
-                                        "
-                                    >
-                                        <h5
-                                            style="
-                                                text-align: center;
-                                                padding-right: 10px;
-                                                padding-left: 10px;
-                                            "
-                                        >
-                                            <strong>Fecha Fin</strong>
-                                        </h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding-bottom: 15px;">1</td>
-                                    <td colspan="3" style="padding: 0">
-                                        <div class="cell-content">
-                                            Captación, tratamiento y suministro
-                                            de agua para uso distinto al
-                                            doméstico
-                                        </div>
-                                    </td>
-                                    <td>100</td>
-                                    <td>01/01/2004</td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    <!-- </div> -->
-                </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <strong>Código Postal:</strong>29034
+                                        </td>
+                                        <td><strong>Tipo de Vialidad:</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Nombre de Vialidad:</strong>15A
+                                            NTE OTE
+                                        </td>
+                                        <td>
+                                            <strong>Número Exterior: </strong>450
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Número Interior:</strong></td>
+                                        <td>
+                                            <strong>Nombre de la Colonia: </strong
+                                            >LA PIMIENTA
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Nombre de la Localidad:</strong>
+                                        </td>
+                                        <td>
+                                            <strong
+                                                >Nombre del Municipio o Demarcación
+                                                Territorial:
+                                            </strong>
+                                            TUXTLA GUTIERREZ
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong
+                                                >Nombre de la Entidad
+                                                Federativa:</strong
+                                            >CHIAPAS
+                                        </td>
+                                        <td><strong>Entre Calle:</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <strong>Y Calle:</strong>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        <!-- </div> -->
+                    </div>
 
-                <div class="table-test mt-4">
-                    <!-- <div class="container prueba"> -->
-                        <table class="table table-bordered">
-                            <thead style="background-color: #f2f2f2">
-                                <tr>
-                                    <th
-                                        colspan="5"
-                                        class="text-center teste"
-                                        style="background-color: #f2f2f2"
-                                    >
-                                        <h4><strong> Regímenes: </strong></h4>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td
-                                        style="
-                                            background-color: #f2f2f2;
-                                            white-space: nowrap;
-                                            text-align: center;
-                                        "
-                                        colspan="3"
-                                    >
-                                        <h5>
-                                            <strong>Régimen</strong>
-                                        </h5>
-                                    </td>
-                                    <td
-                                        style="
-                                            background-color: #f2f2f2;
-                                            white-space: nowrap;
-                                            padding-left: 15px;
-                                            padding-right: 15px;
-                                        "
-                                    >
-                                        <h5>
-                                            <strong>Fecha Inicio</strong>
-                                        </h5>
-                                    </td>
-                                    <td
-                                        style="
-                                            background-color: #f2f2f2;
-                                            white-space: nowrap;
-                                        "
-                                    >
-                                        <h5 style="padding-left: 15px; padding-right: 15px;">
-                                            <strong>Fecha Fin</strong>
-                                        </h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3" style="padding-bottom: 15px;">
-                                        Régimen de Sueldos y Salarios e Ingresos
-                                        Asimilados a Salarios
-                                    </td>
-                                    <td>01/01/2004</td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    <!-- </div> -->
-                </div>
-                <div class="col-12 mt-4">
-                    <strong>
-                        <p class="p-justify">
-                            Sus datos personales son incorporados y protegidos
-                            en los sistemas del SAT, de conformidad con los
-                            Lineamientos de Protección de Datos Personales y con
-                            diversas disposiciones fiscales y legales sobre
-                            confidencialidad y protección de datos, a fin de
-                            ejercer las facultades conferidas a la autoridad
-                            fiscal. 
-                        
-                        <p  class="p-justify">
-                            Si desea modificar o corregir sus datos
-                            personales, puede acudir a cualquier Módulo de
-                            Servicios Tributarios y/o a través de la dirección
-                            http://sat.gob.mx
-                        </p>
+                    <div class="table-test mt-4">
+                        <!-- <div class="container prueba"> -->
+                            <table class="table table-bordered">
+                                <thead style="background-color: #f2f2f2">
+                                    <tr>
+                                        <th
+                                            colspan="7"
+                                            class="text-center teste"
+                                            style="background-color: #f2f2f2"
+                                        >
+                                            <h4 class="actividades-size">
+                                                <strong
+                                                    >Actividades Económicas:</strong
+                                                >
+                                            </h4>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="order-size">
+                                        <td
+                                            style="background-color: #f2f2f2"
+                                            class="puertita compact-table"
+                                        >
+                                            <h5 style="text-align: center">
+                                                <strong>Orden</strong>
+                                            </h5>
+                                        </td>
+                                        <td
+                                            style="background-color: #f2f2f2"
+                                            colspan="3"
+                                        >
+                                            <div class="cell-content">
+                                                <h5
+                                                    style="text-align: center"
+                                                    class="puertita"
+                                                >
+                                                    <strong
+                                                        >Actividad Económica</strong
+                                                    >
+                                                </h5>
+                                            </div>
+                                        </td>
+                                        <td style="background-color: #f2f2f2">
+                                            <h5
+                                                style="
+                                                    text-align: center;
+                                                    padding-right: 10px;
+                                                    padding-left: 10px;
+                                                "
+                                            >
+                                                <strong>Porcentaje</strong>
+                                            </h5>
+                                        </td>
+                                        <td
+                                            style="
+                                                background-color: #f2f2f2;
+                                                white-space: nowrap;
+                                            "
+                                        >
+                                            <h5
+                                                style="
+                                                    text-align: center;
+                                                    padding-right: 10px;
+                                                    padding-left: 10px;
+                                                "
+                                            >
+                                                <strong>Fecha Inicio</strong>
+                                            </h5>
+                                        </td>
+                                        <td
+                                            style="
+                                                background-color: #f2f2f2;
+                                                white-space: nowrap;
+                                            "
+                                        >
+                                            <h5
+                                                style="
+                                                    text-align: center;
+                                                    padding-right: 10px;
+                                                    padding-left: 10px;
+                                                "
+                                            >
+                                                <strong>Fecha Fin</strong>
+                                            </h5>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-bottom: 15px;">1</td>
+                                        <td colspan="3" style="padding: 0">
+                                            <div class="cell-content">
+                                                Captación, tratamiento y suministro
+                                                de agua para uso distinto al
+                                                doméstico
+                                            </div>
+                                        </td>
+                                        <td>100</td>
+                                        <td>01/01/2004</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        <!-- </div> -->
+                    </div>
 
-                        <p class="p-justify">
-                            "La corrupción tiene consecuencias
-                            ¡denúnciala! Si conoces algún posible acto de
-                            corrupción o delito presenta una queja o denuncia a
-                            través de: <a href="#" class="link" style="color: black;">www.sat.gob.mx</a>, <a href="#" class="link" style="color: black;">denuncias@sat.gob.mx</a>,
-                            desde México: (55) 8852 2222, desde el extranjero: +
-                            55 8852 2222, SAT móvil o <a href="https://www.sat.gob.mx" class="link" style="color: black;">www.sat.gob.mx</a>"
-                        </p>
-                        </p>
-                    </strong>
-                </div>
-                <div class="col-3 mt-4">
-                    <strong>
+                    <div class="table-test mt-4">
+                        <!-- <div class="container prueba"> -->
+                            <table class="table table-bordered">
+                                <thead style="background-color: #f2f2f2">
+                                    <tr>
+                                        <th
+                                            colspan="5"
+                                            class="text-center teste"
+                                            style="background-color: #f2f2f2"
+                                        >
+                                            <h4><strong> Regímenes: </strong></h4>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td
+                                            style="
+                                                background-color: #f2f2f2;
+                                                white-space: nowrap;
+                                                text-align: center;
+                                            "
+                                            colspan="3"
+                                        >
+                                            <h5>
+                                                <strong>Régimen</strong>
+                                            </h5>
+                                        </td>
+                                        <td
+                                            style="
+                                                background-color: #f2f2f2;
+                                                white-space: nowrap;
+                                                padding-left: 15px;
+                                                padding-right: 15px;
+                                            "
+                                        >
+                                            <h5>
+                                                <strong>Fecha Inicio</strong>
+                                            </h5>
+                                        </td>
+                                        <td
+                                            style="
+                                                background-color: #f2f2f2;
+                                                white-space: nowrap;
+                                            "
+                                        >
+                                            <h5 style="padding-left: 15px; padding-right: 15px;">
+                                                <strong>Fecha Fin</strong>
+                                            </h5>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="padding-bottom: 15px;">
+                                            Régimen de Sueldos y Salarios e Ingresos
+                                            Asimilados a Salarios
+                                        </td>
+                                        <td>01/01/2004</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        <!-- </div> -->
+                    </div>
+                    <div class="col-12 mt-4">
+                        <strong>
+                            <p class="p-justify">
+                                Sus datos personales son incorporados y protegidos
+                                en los sistemas del SAT, de conformidad con los
+                                Lineamientos de Protección de Datos Personales y con
+                                diversas disposiciones fiscales y legales sobre
+                                confidencialidad y protección de datos, a fin de
+                                ejercer las facultades conferidas a la autoridad
+                                fiscal. 
+                            
+                            <p  class="p-justify">
+                                Si desea modificar o corregir sus datos
+                                personales, puede acudir a cualquier Módulo de
+                                Servicios Tributarios y/o a través de la dirección
+                                http://sat.gob.mx
+                            </p>
+
+                            <p class="p-justify">
+                                "La corrupción tiene consecuencias
+                                ¡denúnciala! Si conoces algún posible acto de
+                                corrupción o delito presenta una queja o denuncia a
+                                través de: <a href="#" class="link" style="color: black;">www.sat.gob.mx</a>, <a href="#" class="link" style="color: black;">denuncias@sat.gob.mx</a>,
+                                desde México: (55) 8852 2222, desde el extranjero: +
+                                55 8852 2222, SAT móvil o <a href="https://www.sat.gob.mx" class="link" style="color: black;">www.sat.gob.mx</a>"
+                            </p>
+                            </p>
+                        </strong>
+                    </div>
+                    <div class="col-3 mt-4">
+                        <strong>
+                            <p>
+                                Cadena Original Sello: <br>
+                                Sello Digital:
+                            </p>
+                        </strong>
+                    </div>
+                    <div class="col-9 mt-4">
                         <p>
-                            Cadena Original Sello: <br>
-                            Sello Digital:
+                            ||<%= fecha %>|<%= rfc %>|CONSTANCIA DE SITUACIÓN
+                                FISCAL|200001088888800000031||
+                                S6rmsoO5rJoJtQGHjluaLDhdRwfmTVQIvdU2YtwlbBTkqhAanAUDCtGA85pseJOoM1k5k+5jPIYxuyonMRw+EdD
+                                7I7uyATw4sTjA0yhrwCfP8vg3j5KklD+QYo5Yr/e+8AJwKjNUOYyHt03u6mQPzm5NdW1SG4qqUp9J0UUEI+s=
                         </p>
-                    </strong>
+                    </div>
                 </div>
-                <div class="col-9 mt-4">
-                    <p>
-                        ||<%= fecha %>|<%= rfc %>|CONSTANCIA DE SITUACIÓN
-                            FISCAL|200001088888800000031||
-                            S6rmsoO5rJoJtQGHjluaLDhdRwfmTVQIvdU2YtwlbBTkqhAanAUDCtGA85pseJOoM1k5k+5jPIYxuyonMRw+EdD
-                            7I7uyATw4sTjA0yhrwCfP8vg3j5KklD+QYo5Yr/e+8AJwKjNUOYyHt03u6mQPzm5NdW1SG4qqUp9J0UUEI+s=
-                    </p>
+                    </div>
                 </div>
-            </div>
-                </div>
-            </div>
 
-        </section>
-    </body>
-</html>
+            </section>
+        </body>
+    </html>
