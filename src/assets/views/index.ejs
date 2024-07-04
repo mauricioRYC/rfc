@@ -66,8 +66,8 @@
 }
 
 .qr {
-    height: 11.5rem;
-    width: 11.5rem;
+    height: 9.3rem;
+    width: 9.3rem;
 }
 
 .text-qr {
@@ -80,7 +80,7 @@
     color: #939393;
     text-align: center;
     font-size: 16px;
-    white-space: nowrap;
+    /* white-space: nowrap; */
 }
 
 .regex {
@@ -109,13 +109,22 @@
 }
 
 .col-teset {
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
 }
 
 .col-teste1 {
     margin-top: -0.6rem;
 }
 
+.col-test {
+    font-size: 11.5px;
+    text-align: center;
+    color: #939393;
+}
+.parrafo{
+    /* quitar interlineado */
+    margin: 0;
+}
 .varibale {
     margin-bottom: -25px;
 }
@@ -168,11 +177,12 @@
 
 .contenedor-fecha {
     margin-top: 20px;
-    height: 80px;
+    min-height: 50px;
     width: 100%;
     text-align: center;
     border: 1px solid #2a2a2a;
     background-color: #f2f2f2;
+    font-size: 13.5px;
 }
 
 .date {
@@ -253,8 +263,8 @@
 }
 
 body {
-    width: 210mm;
-    height: 297mm;
+    /* width: 210mm; */
+    /* height: 297mm; */
     margin: 0;
     padding: 0;
     font-size: 12px; /* Asegúrate de que el tamaño de fuente sea adecuado */
@@ -313,7 +323,7 @@ body {
                                 </div>
                                 <div class="">
                                 <div class="row">
-                                    <div class="col-12 mb-3">
+                                    <div class="col-12">
                                         <div class="w-100 borders">
                                             <img
                                                 src="svg/test.png"
@@ -323,42 +333,25 @@ body {
                                         </div>
                                     </div>
 
-                                    <div class="col">
+                                    <div class="col-5" style="align-content: center; text-align: end;">
                                         <img src="<%= qrPath %>" alt="Código QR" class="qr" />
 
                                     </div>
-                                    <div class="col col-test">
-                                        <div class="varibale">
-                                            <p class="text-qr"><%= rfc %> <br /></p>
+                                    <div class="col-1">
+                                    </div>
+                                    <div class="col-6 col-test mt-3 mb-3">
+                                        <div class="">
+                                            <p class="parrafo"><%= rfc %> <br> Registro Federal de
+                                                Contribuyentes </p>
                                         </div>
-                                        <div class="col-test">
-                                            <span class="text-q"
-                                                >Registro Federal de
-                                                Contribuyentes</span
-                                            >
-                                        </div>
-                                        <div class="col-teset varibale">
-                                            <p class="text-qr"><%= nombre %></p>
-                                        </div>
-                                        <div class="col-teste1">
-                                            <span class="text-teste1"
-                                                >Nombre, denominación o razón
-                                            </span>
-                                            <div class="col-teste1">
-                                                <span class="text-teste1"
-                                                    >social</span
-                                                >
-                                            </div>
-                                        </div>
-                                        <div class="varibale-id">
-                                            <p class="text-idCif">
-                                                idCIF:
-                                                <span><%= idCIF %></span>
-                                            </p>
+                                        <div class="mb-2 mt-2">
+                                            <p class="parrafo" ><%= nombre %> <br>Nombre, denominación o razón social</p>
                                         </div>
                                         <div class="">
-                                            <p class="text-valida">
-                                                VALIDA TU INFORMACIÓN FISCAL
+                                            <p class="parrafo">
+                                                idCIF:
+                                                <span><%= idCIF %></span><br>   
+                                                VALIDA TU INFORMACIÓN <br>FISCAL
                                             </p>
                                         </div>
                                     </div>
@@ -367,36 +360,32 @@ body {
                             </div>
                         </div>
                         <div
-                            class="col-6 d-flex justify-content-center align-items-center situacion"
+                            class="col-6 d-flex justify-content-center align-items-end   situacion"
                         >
                             <div class="container p-0">
                                 <div
-                                    class="container d-flex justify-content-center align-items-center contenedor-fecha txt-nowrap"
-                                    style="
-                                        border: 1px solid #565656;
-                                        background-color: #f2f2f2;
-                                    "
+                                    class="container d-flex justify-content-center align-items-center contenedor-fecha"
                                 >
-                                    <h4 class="text-center">
+                                    <div class="text-center" style="font-size: 16px;">
                                         <strong
                                             >CONSTANCIA DE SITUACIÓN FISCAL</strong
                                         >
-                                    </h4>
+                                    </div>
                                 </div>
                                 <div
-                                    class="container d-flex justify-content-center align-items-center contenedor-fecha date"
+                                    class="container d-flex justify-content-center align-items-center contenedor-fecha"
                                 >
-                                    <div class="date">
+                                    <div class="">
                                         <span class="text-center"
                                             >Lugar y Fecha de Emisión</span
                                         >
 
-                                        <h5 class="txt-lugar">
+                                        <div class="">
                                             <strong
                                                 >CUAUHTEMOC, CIUDAD DE MEXICO A 05
                                                 DE JUNIO DE 2024</strong
                                             >
-                                        </h5>
+                                        </div>
                                     </div>
                                 </div>
                                 <div
@@ -405,7 +394,7 @@ body {
                                         <img
                                         src="<%= barcodePath %>"
                                         alt="Código de Barras"
-                                        style="width: 45%; height: 100%;"
+                                        style="width: 45%; height: 45px"
                                         />
                                 </div>
                             </div>
