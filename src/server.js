@@ -81,32 +81,27 @@ app.get("/", async (req, res) => {
         const content = await compile("index", data);
         const page = await browser.newPage();
         await page.goto("http://localhost:8080/index", data);
-        // const page = await browser.newPage();
-        // await page.setContent(content, {
-        //     waitUntil: "networkidle2",
-        //     timeout: 90000,
-        // });
+
         await page.waitForSelector("#detalles", { timeout: 5000 });
         await page.emulateMediaType("screen");
         const pdfPath = path.join(__dirname, "test.pdf");
         await page.evaluateHandle("document.fonts.ready");
-    //     const headerTemplate = `
-    //         <div class="">
-    //                         <div style= "background-color: #2e363a;
-    // height: 3.7rem;
-    // /* width: 97%; */
-    // margin-top: 7rem;
-    // border: 1px solid #000;"></div>
-    //                     </div>`;
+  
         // Genera el PDF
         await page.pdf({
             path: "rfc.pdf",
-            format: "A4",
+            format: "A3",
             printBackground: true,
+            preferCSSPageSize: true,
             margin: {
-                top:"10mm",
-                bottom: "50mm", 
+                top: "10mm",
+                right: "5mm",
+                bottom: "20mm",
+                left: "5mm",
             },
+            footerTemplate:
+                '<div style="width: 100%; text-align: center;">Página <span class="pageNumber"></span> de <span class="totalPages"></span></div>',
+            repeatTableHeader: true,
         });
         await browser.close();
         console.log("QUE PEDO D:");
