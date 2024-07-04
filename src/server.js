@@ -8,12 +8,11 @@ const bwipjs = require("bwip-js");
 const responses = require("../responses.json");
 const app = express();
 
-// Configuración de la vista y los archivos estáticos
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "assets", "views"));
 app.use(express.static(path.resolve(__dirname, "assets")));
+app.use("/svg", express.static(path.join(__dirname, "assets", "svg")));
 
-// Ruta principal
 app.get("/", async (req, res) => {
     try {
         const {
@@ -31,7 +30,7 @@ app.get("/", async (req, res) => {
         });
         const qr = "qrcode.svg";
         const barcode = "barcode.png";
-        const svgFilePath = path.join(__dirname, "assets/svg", qr);
+        const svgFilePath = path.join(__dirname, "assets", "svg", qr);
         await fs.writeFile(svgFilePath, qrPath);
 
         const barcodeFilePath = path.join(
@@ -55,8 +54,8 @@ app.get("/", async (req, res) => {
             primerApellido,
             actividades,
             rfc,
-            qrPath: `/svg/${qr}`,
-            barcodePath: `/barcodes/${barcode}`,
+            qrPath: `/svg/${qr}.svg`,
+            barcodePath: `/barcodes/${barcode}.png`,
             idCIF: 22120114385,
             obligaciones,
             codigosPostales: codigosPostales[0].clave,
@@ -81,28 +80,36 @@ app.get("/", async (req, res) => {
         console.log(data, " veamos que mando");
         const content = await compile("index", data);
         const page = await browser.newPage();
-        await page.setContent(content, {
-            waitUntil: "networkidle2",
-            timeout: 90000,
-        });
+        await page.goto("http://localhost:8080/index", data);
+        // const page = await browser.newPage();
+        // await page.setContent(content, {
+        //     waitUntil: "networkidle2",
+        //     timeout: 90000,
+        // });
         await page.waitForSelector("#detalles", { timeout: 5000 });
         await page.emulateMediaType("screen");
         const pdfPath = path.join(__dirname, "test.pdf");
         await page.evaluateHandle("document.fonts.ready");
-
+    //     const headerTemplate = `
+    //         <div class="">
+    //                         <div style= "background-color: #2e363a;
+    // height: 3.7rem;
+    // /* width: 97%; */
+    // margin-top: 7rem;
+    // border: 1px solid #000;"></div>
+    //                     </div>`;
         // Genera el PDF
         await page.pdf({
-            path: "output.pdf",
+            path: "rfc.pdf",
             format: "A4",
             printBackground: true,
-            // margin: {
-            //     top: "0px",
-            //     right: "0px",
-            //     bottom: "0px",
-            //     left: "0px",
-            // },
+            margin: {
+                top:"10mm",
+                bottom: "50mm", 
+            },
         });
         await browser.close();
+        console.log("QUE PEDO D:");
         res.status(200).json({ message: "TODO BEM" });
     } catch (e) {
         console.error("Error al generar el PDF:", e);
