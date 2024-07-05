@@ -21,12 +21,12 @@
     font-family: Arial, sans-serif;
 }
 
-.border {
+.borderss {
     background-color: #2e363a;
-    height: 3.7rem;
+    height: 3rem;
     /* width: 97%; */
-    /* margin-top: 7rem; */
-    border: 1px solid #000;
+    margin-top: 2rem;
+    /* border: solid; */
 }
 
 /* .borderRow {
@@ -252,16 +252,16 @@
     text-align: justify;
 }
 
-@page {
-    size: A4 portrait;
-    margin: 0; 
-}
+/* @page { */
+    /* size: A4 portrait; */
 
-body {
+/* } */
+
+/* body {
     margin: 0;
     padding: 0;
     font-size: 12px; 
-}
+} */
 
 .container {
     width: 100%;
@@ -300,10 +300,15 @@ body {
         </style>
         <body>
             <section class="vh-100">
-                <div class="container">
+                <div class="container" style="max-width: 100%;">
                     <div class="row" id="detalles">
+                        <div style="background-color: #2e363a;
+                        height: 3rem;
+                        margin-top: 2rem;">
+                        </div>
+
                         <div class="col-12">
-                            <div class="border"></div>
+                            <div class="borderss"></div>
                         </div>
                         <div class="col-6 borderRow mt-4">
                             <div class="row d-flex row-reverse regex_title">

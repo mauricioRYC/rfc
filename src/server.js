@@ -90,12 +90,27 @@ app.get("/", async (req, res) => {
         // Genera el PDF
         await page.pdf({
             path: "rfc.pdf",
-            format: "A4",
+            format: "letter",
             printBackground: true,
+            displayHeaderFooter: true,
             preferCSSPageSize: true,
+            headerTemplate: `
+            <div style="background-color: #2e363a;
+                        height: 3rem;
+                        margin-top: 2rem;">
+                        </div>
+        `,
             margin: {
-                // top: "5cm",
-                bottom: "25cm",
+                top: "0cm",
+                right: "0.8cm",
+                bottom: "4cm",
+                left: "0.8cm",
+            },
+            padding: {
+                top: "0in",
+                right: "0in",
+                bottom: "0in",
+                left: "0in",
             },
             footerTemplate:
                 '<div style="width: 100%; text-align: center;">Página <span class="pageNumber"></span> de <span class="totalPages"></span></div>',
