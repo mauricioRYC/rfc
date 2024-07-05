@@ -53,6 +53,7 @@
 }
 
 .borders {
+    padding: 10px;
     width: 15rem;
     display: flex;
     flex-direction: column;
@@ -66,8 +67,13 @@
 }
 
 .qr {
-    height: 9.3rem;
-    width: 9.3rem;
+    height: 11.5rem;
+    width: 11.5rem;
+}
+
+.qr2 {
+    height: 13rem;
+    width: 13rem;
 }
 
 .text-qr {
@@ -117,9 +123,10 @@
 }
 
 .col-test {
-    font-size: 11.5px;
+    font-size: 15px;
     text-align: center;
     color: #939393;
+    font-weight: bold;
 }
 .parrafo{
     /* quitar interlineado */
@@ -172,12 +179,12 @@
 
 .contenedor-fecha {
     margin-top: 20px;
-    min-height: 50px;
+    min-height: 65px;
     width: 100%;
     text-align: center;
     border: 1px solid #2a2a2a;
     background-color: #f2f2f2;
-    font-size: 13.5px;
+    font-size: 18.5px;
 }
 
 .date {
@@ -214,7 +221,7 @@
 }
 
 .formulario1 {
-    font-size: 1.4rem;
+    /* font-size: 1.4rem; */
     padding: 5px 0;
 }
 
@@ -257,11 +264,15 @@
 
 /* } */
 
-/* body {
-    margin: 0;
-    padding: 0;
-    font-size: 12px; 
-} */
+body {
+    /* margin: 0;
+    padding: 0; */
+    font-size: 16px; 
+}
+
+.letra{
+    font-size: 16px;
+}
 
 .container {
     width: 100%;
@@ -300,16 +311,8 @@
         </style>
         <body>
             <section class="vh-100">
-                <div class="container" style="max-width: 100%;">
+                <div class="" style="max-width: 100%;">
                     <div class="row" id="detalles">
-                        <div style="background-color: #2e363a;
-                        height: 3rem;
-                        margin-top: 2rem;">
-                        </div>
-
-                        <div class="col-12">
-                            <div class="borderss"></div>
-                        </div>
                         <div class="col-6 borderRow mt-4">
                             <div class="row d-flex row-reverse regex_title">
                                 <div class="col-6 col-sm-4 w-100 frame">
@@ -331,13 +334,13 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-5" style="align-content: center; text-align: end;">
+                                    <div class="col-5" style="align-content: start; text-align: end;">
                                         <img src="<%= qrPath %>" alt="Código QR" class="qr" />
 
                                     </div>
-                                    <div class="col-1">
-                                    </div>
-                                    <div class="col-6 col-test mt-3 mb-3">
+                                    <!-- <div class="col-1">
+                                    </div> -->
+                                    <div class="col-7 col-test mt-3 mb-3">
                                         <div class="">
                                             <p class="parrafo"><%= rfc %> <br> Registro Federal de
                                                 Contribuyentes </p>
@@ -364,7 +367,7 @@
                                 <div
                                     class="container d-flex justify-content-center align-items-center contenedor-fecha"
                                 >
-                                    <div class="text-center" style="font-size: 16px;">
+                                    <div class="text-center" style="font-size: 21px;">
                                         <strong
                                             >CONSTANCIA DE SITUACIÓN FISCAL</strong
                                         >
@@ -392,7 +395,7 @@
                                         <img
                                         src="<%= barcodePath %>"
                                         alt="Código de Barras"
-                                        style="width: 45%; height: 45px"
+                                        style="width: 45%; height: 55px"
                                         />
                                 </div>
                             </div>
@@ -409,12 +412,12 @@
                                             class="text-center teste"
                                             style="background-color: #f2f2f2"
                                         >
-                                            <h1 class="formulario1">
+                                            <div class="formulario1 letra">
                                                 <strong
                                                     >Datos de Identificación del
                                                     Contribuyente:</strong
                                                 >
-                                            </h1>
+                                            </div>
                                         </th>
                                     </tr>
                                 </thead>
@@ -657,6 +660,7 @@
                     <!--!ESTO ES REGIMEN-->
                     <div class="table-test mt-4">
                         <!-- <div class="container prueba"> -->
+                            <br><br><br>
                             <table class="table table-bordered">
                                 <thead style="background-color: #f2f2f2">
                                     <tr>
@@ -818,6 +822,12 @@
                     </div>
 
                 </div>
+
+
+                    <div class="col-12" style="align-content: start; text-align: end; padding: 15px;">
+                            <img src="<%= qrPath %>" alt="Código QR" class="qr2" />
+                    </div>
+
                     </div>
                 </div>
 
